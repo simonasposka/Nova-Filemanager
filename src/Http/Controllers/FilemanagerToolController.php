@@ -115,6 +115,10 @@ class FilemanagerToolController extends Controller
      */
     public function rename(Request $request)
     {
+        if ($request->type === 'dir') {
+            return $this->service->renameDirectory($request->path, $request->name);
+        }
+
         return $this->service->renameFile($request->path, $request->name);
     }
 
