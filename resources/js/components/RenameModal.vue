@@ -20,13 +20,13 @@
                             <input type="text" class="flex-shrink flex-grow flex-auto h-full form-control form-input form-input-bordered-left py-3" :placeholder="nameWithoutExtension" v-model="nameWithoutExtension" autofocus required v-on:keyup.enter="renamePath">
                             <div class="flex -mr-px">
                                 <span class="flex items-center leading-normal bg-50 rounded rounded-l-none form-input-bordered-right px-3 whitespace-no-wrap text-grey-dark text-sm">{{ extension }}</span>
-                            </div>
+                            </div>  
                         </div>
-
+                            
                         <p class="my-2 text-danger" v-if="error">{{ errorMsg }}</p>
 
                     </template>
-
+                    
                 </div>
 
                 <div class="bg-30 px-6 py-3 flex">
@@ -93,7 +93,7 @@ export default {
                 return false;
             }
 
-            return api.rename(this.path, nameToSave, this.type).then(result => {
+            return api.rename(this.path, nameToSave).then(result => {
                 this.error = false;
                 this.name = null;
                 if (result.success == true) {
