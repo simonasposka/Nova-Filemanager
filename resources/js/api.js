@@ -73,11 +73,12 @@ export default {
             .then(response => response.data);
     },
 
-    rename(path, name) {
+    rename(path, name, type) {
         return window.axios
             .post('/nova-vendor/infinety-es/nova-filemanager/actions/rename', {
                 path: path,
                 name: name,
+                type: type
             })
             .then(response => response.data);
     },
